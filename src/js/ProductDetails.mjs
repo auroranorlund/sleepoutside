@@ -6,6 +6,11 @@ export default class ProductDetails {
         this.product = {};
         this.dataSource = dataSource;
     }
+    async init() {
+        this.product = await this.dataSource.findProductById(this.productId);
+        this.renderProductDetails();
+        document.getElementById('addToCart').addEventListener('click', this.addProductToCart.bind(this));
+    }
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || [];
         cartItems.push(this.product);
@@ -13,11 +18,6 @@ export default class ProductDetails {
     }
     renderProductDetails() {
         productDetailsTemplate(this.product);
-    }
-    async init() {
-        this.product = await this.dataSource.findProductById(this.productId);
-        this.renderProductDetails();
-        document.getElementById('addToCart').addEventListener('click', this.addProductToCart.bind(this));
     }
 }
 
@@ -29,7 +29,7 @@ function productDetailsTemplate(product) {
     productImage.src = product.Image;
     productImage.alt = product.NameWithoutBrand;
 
-    document.getElementById('productPrice').textContent = product.FinalPrice;
+    document.getElementById('productPrice').innerHTML = `$${product.FinalPrice}`;
     document.getElementById('productColor').textContent = product.Colors[0].ColorName;
     document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
 
