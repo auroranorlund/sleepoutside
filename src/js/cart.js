@@ -5,9 +5,8 @@ function renderCartContents() {
   if (cartItems != null) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  }
-  else {
-    document.querySelector(".product-list").innerHTML = `Your cart is empty.`
+  } else {
+    document.querySelector(".product-list").innerHTML = `Your cart is empty.`;
   }
 }
 
