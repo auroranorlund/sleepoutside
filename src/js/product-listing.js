@@ -4,12 +4,14 @@ import { loadHeaderFooter, getParam } from "./utils.mjs";
 
 loadHeaderFooter();
 
-const category = getParam('category');
+const category = getParam("category");
 
-document.getElementById('listing-title').innerHTML = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+document.getElementById("listing-title").innerHTML =
+  `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
 
 if (category == "sleeping-bags") {
-  document.getElementById('listing-title').innerHTML = `Top Products: Sleeping Bags`;
+  document.getElementById("listing-title").innerHTML =
+    `Top Products: Sleeping Bags`;
 }
 
 const dataSource = new ProductData();
