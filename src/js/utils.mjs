@@ -59,3 +59,12 @@ export async function loadHeaderFooter() {
   const footerElement = document.querySelector("#main-footer");
   renderWithTemplate(footerTemplate, footerElement);
 }
+// Get total $ amount of cart
+export function getCartTotal() {
+  const cartItems = getLocalStorage("so-cart");
+  let cartTotal = 0;
+  cartItems.forEach((item) => {
+    cartTotal += item.FinalPrice;
+  })
+  return cartTotal;
+}

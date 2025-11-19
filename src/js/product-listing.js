@@ -1,4 +1,4 @@
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
 
@@ -14,7 +14,7 @@ if (category == "sleeping-bags") {
     `Top Products: Sleeping Bags`;
 }
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 const list = new ProductList(
   category,

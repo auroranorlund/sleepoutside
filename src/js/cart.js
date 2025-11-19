@@ -1,5 +1,9 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  loadHeaderFooter,
+  getCartTotal,
+} from "./utils.mjs";
 
 loadHeaderFooter();
 
@@ -13,8 +17,11 @@ function renderCartContents() {
         .getElementById(item.Id)
         .addEventListener("click", removeProductFromCart.bind(this, item.Id));
     });
+    document.getElementById("cart-total").innerHTML =
+      `Total: $${getCartTotal()}`;
   } else {
     document.querySelector(".product-list").innerHTML = `Your cart is empty.`;
+    document.querySelector(".cart-footer").innerHTML = ``;
   }
 }
 
