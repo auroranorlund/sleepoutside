@@ -68,3 +68,22 @@ export function getCartTotal() {
   })
   return cartTotal;
 }
+// Create alert message
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  const main = document.querySelector("main")
+  alert.innerHTML = `<p>${message}</p><span id="close">X<span>`
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  main.prepend(alert);
+  if (scroll) window.scrollTo(0, 0);
+}
+// Remove all alerts
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+}
