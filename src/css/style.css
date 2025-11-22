@@ -267,6 +267,23 @@ button {
     grid-template-columns: 150px auto 15%;
   }
 }
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: var(--primary-color);
+  border: 1px solid var(--dark-grey);
+}
+.alert p {
+  margin: 0;
+}
+.alert-close {
+  font-weight: bold;
+  cursor: pointer;
+}
+/* End alert styles */
 
 footer {
   font-size: var(--small-font);
